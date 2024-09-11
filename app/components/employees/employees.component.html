@@ -1,0 +1,87 @@
+<div>
+    <h3>Employees Component</h3>
+</div>
+
+<div>
+    <!-- One way property binding -->
+    <!-- <button type="button" disabled>Hello</button> -->
+    <button type="button" [disabled]="isDisabled" (click)="clickButton()" class="btn btn-success">Hello</button>
+    <br>
+    <!-- angular material button -->
+    <h5>Anguler Button</h5>
+    <button mat-stroked-button>Basic</button>
+
+    <br>
+    <br>
+    <div>
+        <button mat-fab extended>
+            <mat-icon>favorite</mat-icon>
+            Basic
+        </button>
+    </div>
+    <br>
+    <div>
+        <button mat-fab aria-label="Example icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+
+    <br>
+    <br>
+    <!-- <img src="../assets/img/img1.jpeg" alt="flower"> -->
+    <img [src]="imgPath1" alt="flower" width="200px" height="251.53px">
+
+    <img [src]="imgPath2" alt="sunset" width="200px">
+</div>
+
+<!-- Interpolation -->
+<div>
+    <h4>Employees data</h4>
+    <p>{{employees | json}}</p>
+    <!-- Using pipe operator(|) we can convert an input in a specific format(output) -->
+    <p>Today is {{currentDate | date | uppercase}}</p>
+    <p>Current date is {{currentDate | date : "MM/dd/yy"}}</p>
+</div>
+
+<div>
+    <!-- Dislpay employee's list in an ordered list -->
+    <h4>Employes Ordered List</h4>
+    <ol>
+        <li *ngFor="let employee of employees">{{employee.name}}</li>
+    </ol>
+</div>
+
+<div>
+    <!-- Dislpay employee's list in an ordered list -->
+    <h4>Employes Unordered List</h4>
+    <ul>
+        <li *ngFor="let employee of employees" (click)="clickEmployee(employee)">{{employee.name}}</li>
+    </ul>
+</div>
+
+<!-- Using *ngIf directive to put a condition on div element -->
+<div *ngIf="selectedEmp">You selected employee {{selectedEmp.name}}</div>
+
+<div>
+    <h4>Employees Table</h4>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+                <td>Job</td>
+                <td>Company</td>
+                <td>Department</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.name}}</td>
+                <td>{{employee.age}}</td>
+                <td>{{employee.job}}</td>
+                <td>{{employee.company}}</td>
+                <td>{{employee.department}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
